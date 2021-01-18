@@ -1,11 +1,18 @@
-import java.util.Scanner;
+import java.security.PublicKey;
+import java.util.Scanner; // Import para leer por pantalla
+
+import java.util.Stack; /* Ejercicio 5: Import para crear una pila. Una pila es una estructura que nos 
+                         * permite apilar elementos y recopilarlos en el orden inverso al cual los apilamos
+                         * mediante operaciones de desapilar. */
+
+import java.util.StringTokenizer; // Ejercicio 5: Import para convertir la frase en un array de palabras.
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Bienvenido al menú de ejercicios!!!");
         System.out.println("Estas son los ejercicios que puedes ver:");
         mostrarMenu();
-        System.out.println("Ahora elige que ejercicio quieres ver:");
+        System.out.println("-->  Ahora elige que ejercicio quieres ver:  <--");
         mostrarEjercicios();
     }
     public static void mostrarMenu(){
@@ -39,6 +46,7 @@ public class App {
     public static void mostrarEjercicios(){
         Scanner lector = new Scanner(System.in);
         int opcion = lector.nextInt();
+        String basurero = lector.nextLine();
         switch(opcion){
             case 1:
                 System.out.println("<--   Has elegido el ejercicio 1:   -->");
@@ -54,26 +62,45 @@ public class App {
                 break;
             case 4:
                 System.out.println("<--   Has elegido el ejercicio 4:   -->");
-                //cuartoEjercicio();
+                System.out.println("Escribe un texto y te devolverá el número de carácteres que tiene: ");
+                String cadena1 = lector.nextLine();
+                devolverCaracteres(cadena1);
                 break;
             case 5:
                 System.out.println("<--   Has elegido el ejercicio 5:   -->");
-                //quintoEjercicio();
+                System.out.println("Escribe un texto para invertirlo: ");
+                String cadena2 = lector.nextLine();
+                invertirCadena(cadena2);
                 //devuelve strings
                 break;
             case 6:
                 System.out.println("<--   Has elegido el ejercicio 6:   -->");
-                //sexto ejercicio();
+                System.out.println("Escribe un texto para quitarle los espacios: ");
+                String cadena3 = lector.nextLine();
+                quitarEspacios(cadena3);
                 break;
             case 7:
                 System.out.println("<--   Has elegido el ejercicio 7:   -->");
-                //septimoEjercicio();
+                System.out.println("Escribe la primera cadena:");
+                String conca1 = lector.nextLine();
+                System.out.println("Escribe la segunda cadena: ");
+                String conca2 = lector.nextLine();
+                concatenarCadenas(String conca1, conca2);
+                break;
+            case 8:
+                System.out.println("<--   Has elegido el ejercicio 8:   -->");
+                //octavoEjercicio();
+                break;
+            case 9:
+                System.out.println("<--   Has elegido el ejercicio 9:   -->");
+                //novenoEjercicio();
                 break;
             default:
-                System.out.println("Escribe el número correcto del ejercicio que quieras ver");
+                System.out.println("Escribe el número correcto del ejercicio que quieras ver.");
                 break;
         }
     }
+    // PRIMER EJERCICIO 
     public static void almacenarNumeros(){
         Scanner lectorNumeros = new Scanner(System.in);
         int [] mi_array = new int [5];
@@ -87,6 +114,7 @@ public class App {
             System.out.printf("%d - ", mi_array[i]);
         }  
     }
+    // SEGUNDO EJERCICIO
     public static void invertirNumeros(){
         Scanner lectorNumeros = new Scanner(System.in);
         int [] mi_array2 = new int [5];
@@ -100,6 +128,7 @@ public class App {
             System.out.printf("%d - ", mi_array2[i]);
         }
     }
+    // TERCER EJERCICIO
     public static void hacerMedias(){
         Scanner lectorNumeros = new Scanner(System.in);
         int [] mi_array3 = new int [5];
@@ -111,5 +140,32 @@ public class App {
                 
             }
         }
+    }
+    // CUARTO EJERCICIO
+    public static void devolverCaracteres(String cadena1){
+        System.out.println("Has escrito esto: " + cadena1);
+        System.out.println("Y tiene " + cadena1.length() + " carácteres");
+    }
+    // QUINTO EJERCICIO
+    public static void invertirCadena(String cadena2){
+
+        StringTokenizer frase = new StringTokenizer(cadena2); // Import arriba --> import java.util.StringTokenizer
+        Stack pila = new Stack(); // Import arriba --> import java.util.Stack
+
+        while (frase.hasMoreTokens()) {
+            pila.push(frase.nextToken());
+        }
+
+        while (!pila.empty()){
+            System.out.print(pila.pop() + " ");
+        }
+    }
+    // SEXTO EJERCICIO
+    public static void quitarEspacios(String cadena3){
+        System.out.println(cadena3.replace(" ",""));
+    }
+    // SÉPTIMO EJERCICIO
+    public static void concatenarCadenas(String conca1, conca2){
+        System.out.println("Prueba");
     }
 }
