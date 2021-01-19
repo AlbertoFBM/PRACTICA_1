@@ -46,7 +46,8 @@ public class App {
     public static void mostrarEjercicios(){
         Scanner lector = new Scanner(System.in);
         int opcion = lector.nextInt();
-        String basurero = lector.nextLine();
+        String basurero = lector.nextLine(); 
+        // El String 'basurero' sirve para comerse el retorno de carro (/n) que hace el nextInt()
         switch(opcion){
             case 1:
                 System.out.println("<--   Has elegido el ejercicio 1:   -->");
@@ -63,33 +64,38 @@ public class App {
             case 4:
                 System.out.println("<--   Has elegido el ejercicio 4:   -->");
                 System.out.println("Escribe un texto y te devolverá el número de carácteres que tiene: ");
-                String cadena1 = lector.nextLine();
-                devolverCaracteres(cadena1);
+                String cadena4 = lector.nextLine();
+                devolverCaracteres(cadena4);
                 break;
             case 5:
                 System.out.println("<--   Has elegido el ejercicio 5:   -->");
                 System.out.println("Escribe un texto para invertirlo: ");
-                String cadena2 = lector.nextLine();
-                invertirCadena(cadena2);
+                String cadena5 = lector.nextLine();
+                invertirCadena(cadena5);
                 //devuelve strings
                 break;
             case 6:
                 System.out.println("<--   Has elegido el ejercicio 6:   -->");
                 System.out.println("Escribe un texto para quitarle los espacios: ");
-                String cadena3 = lector.nextLine();
-                quitarEspacios(cadena3);
+                String cadena6 = lector.nextLine();
+                quitarEspacios(cadena6);
                 break;
             case 7:
                 System.out.println("<--   Has elegido el ejercicio 7:   -->");
                 System.out.println("Escribe la primera cadena:");
-                String conca1 = lector.nextLine();
+                String concat1 = lector.nextLine();
                 System.out.println("Escribe la segunda cadena: ");
-                String conca2 = lector.nextLine();
-                concatenarCadenas(String conca1, conca2);
+                String concat2 = lector.nextLine();
+                concatenarCadenas(concat1, concat2);
                 break;
             case 8:
                 System.out.println("<--   Has elegido el ejercicio 8:   -->");
-                //octavoEjercicio();
+                System.out.println("Ahora escribe una cadena y luego una vocal:");
+                System.out.printf("Cadena: ");
+                String cadena8 = lector.nextLine();
+                System.out.printf("Vocal: ");
+                String vocal = lector.nextLine();
+                sustituirVocal(cadena8, vocal);
                 break;
             case 9:
                 System.out.println("<--   Has elegido el ejercicio 9:   -->");
@@ -142,14 +148,14 @@ public class App {
         }
     }
     // CUARTO EJERCICIO
-    public static void devolverCaracteres(String cadena1){
-        System.out.println("Has escrito esto: " + cadena1);
-        System.out.println("Y tiene " + cadena1.length() + " carácteres");
+    public static void devolverCaracteres(String cadena4){
+        System.out.println("Has escrito esto: " + cadena4);
+        System.out.println("Y tiene " + cadena4.length() + " carácteres");
     }
     // QUINTO EJERCICIO
-    public static void invertirCadena(String cadena2){
+    public static void invertirCadena(String cadena5){
 
-        StringTokenizer frase = new StringTokenizer(cadena2); // Import arriba --> import java.util.StringTokenizer
+        StringTokenizer frase = new StringTokenizer(cadena5); // Import arriba --> import java.util.StringTokenizer
         Stack pila = new Stack(); // Import arriba --> import java.util.Stack
 
         while (frase.hasMoreTokens()) {
@@ -161,11 +167,18 @@ public class App {
         }
     }
     // SEXTO EJERCICIO
-    public static void quitarEspacios(String cadena3){
-        System.out.println(cadena3.replace(" ",""));
+    public static void quitarEspacios(String cadena6){
+        System.out.println(cadena6.replace(" ",""));
     }
     // SÉPTIMO EJERCICIO
-    public static void concatenarCadenas(String conca1, conca2){
-        System.out.println("Prueba");
+    public static void concatenarCadenas(String concat1, String concat2){
+        String cadenaConcatenada = concat1.concat(concat2);
+        System.out.println("La cadena concatenada és la sigiente:");
+        System.out.println(cadenaConcatenada);
+    }
+    // OCTAVO EJERCICIO
+    public static void sustituirVocal(String cadena8, String vocal){
+        System.out.println(cadena8);
+        System.out.println(vocal);
     }
 }
