@@ -1,4 +1,3 @@
-import java.security.PublicKey;
 import java.util.Scanner; // Import para leer por pantalla
 
 import java.util.Stack; /* Ejercicio 5: Import para crear una pila. Una pila es una estructura que nos 
@@ -99,7 +98,10 @@ public class App {
                 break;
             case 9:
                 System.out.println("<--   Has elegido el ejercicio 9:   -->");
-                //novenoEjercicio();
+                System.out.println("Escribe una cadena:");
+                System.out.printf("Cadena: ");
+                String cadena9 = lector.nextLine();
+                mostrarASCII(cadena9);
                 break;
             default:
                 System.out.println("Escribe el número correcto del ejercicio que quieras ver.");
@@ -178,7 +180,20 @@ public class App {
     }
     // OCTAVO EJERCICIO
     public static void sustituirVocal(String cadena8, String vocal){
-        System.out.println(cadena8);
-        System.out.println(vocal);
+        /*if (vocal == "a"){
+            System.out.println(cadena8.replace('a','a'));
+        }
+        if (vocal == "e"){
+            System.out.println("adios");
+        }*/
+        String regexp="[aeiouAEIOU]";
+        String msj = cadena8.replace(regexp, vocal);
+        System.out.println(msj);
+    }   
+    // NOVENO EJERCICIO
+    public static void mostrarASCII(String cadena9){
+        for (int i=0; i<cadena9.length(); i++){
+            System.out.println(cadena9.codePointAt(i));
+        }
     }
 }
