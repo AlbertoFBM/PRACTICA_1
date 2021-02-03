@@ -140,14 +140,36 @@ public class App {
     public static void hacerMedias(){
         Scanner lectorNumeros = new Scanner(System.in);
         int [] mi_array3 = new int [5];
-        int i;
-        for(i=0; i<mi_array3.length; i++){
+        int positivos = 0;
+        int negativos = 0;
+        int mediaPositivos = 0;
+        int mediaNegativos = 0;
+        int contadorCeros = 0;
+        for(int i=0; i<5; i++){
             System.out.printf("Introduce un número %d: ", i+1);
-            mi_array3[i] = lectorNumeros.nextInt();
-            if(mi_array3[i] > 0){
-                
+            int numeros = lectorNumeros.nextInt();
+            mi_array3[i] = numeros;
+        }
+        for(int j=0; j<5; j++){
+            if(mi_array3[j] > 0){
+                positivos++;
+                mediaPositivos += mi_array3[j];
+            }
+            else if(mi_array3[j] < 0){
+                negativos++;
+                mediaNegativos += mi_array3[j];
+            }
+            else{
+                contadorCeros++;
             }
         }
+        mediaPositivos = mediaPositivos / positivos;
+        mediaNegativos = mediaNegativos / negativos;
+
+        System.out.println("La media de los números positivos es de un " + mediaPositivos);
+        System.out.println("La media de los números negativos es de un " + mediaNegativos);
+        System.out.println("Hay " + contadorCeros + " ceros");
+        
     }
     // CUARTO EJERCICIO
     public static void devolverCaracteres(String cadena4){
@@ -180,16 +202,13 @@ public class App {
     }
     // OCTAVO EJERCICIO
     public static void sustituirVocal(String cadena8, String vocal){
-        /*if (vocal == "a"){
-            System.out.println(cadena8.replace('a','a'));
-        }
-        if (vocal == "e"){
-            System.out.println("adios");
-        }*/
-        String regexp="[aeiouAEIOU]";
-        String msj = cadena8.replace(regexp, vocal);
-        System.out.println(msj);
-    }   
+        String cadenaSustituida = cadena8.replace("a",vocal);
+        cadenaSustituida = cadenaSustituida.replace("e",vocal);
+        cadenaSustituida = cadenaSustituida.replace("i",vocal);
+        cadenaSustituida = cadenaSustituida.replace("o",vocal);
+        cadenaSustituida = cadenaSustituida.replace("u",vocal);
+        System.out.println(cadenaSustituida);
+    }
     // NOVENO EJERCICIO
     public static void mostrarASCII(String cadena9){
         for (int i=0; i<cadena9.length(); i++){
